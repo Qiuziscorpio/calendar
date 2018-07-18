@@ -1,0 +1,96 @@
+@import 'picker.less';
+
+.calendar{
+  font-size: 14px;
+  .calendar-content{
+    height: 300px;
+    overflow: hidden;
+    overflow-y:  scroll;
+  }
+  .calendar-saturdaytomonday{
+    color: @red;
+  }
+  .calendar-years-title{
+    color: @orange;
+    padding: 8px;
+    text-align: center;
+    background: #fff4e6;
+    margin-bottom: 22.5px;
+  }
+  .calendar-week-title{
+    display: flex;
+    align-items: center;
+  }
+  .calenda-week{
+    flex: 1;
+    display: inline-block;
+    padding: 18px 0;
+    text-align: center;
+  }
+  .calendar-table{
+    .calendar-tr{
+      .calendar-cell{
+        min-width: 53.58px;
+        height: 70px;
+        text-align: center;
+      }
+      .calendar-cell-days{
+        width: 100%;
+        padding: 3px 0;
+        text-align: center;
+        display: inline-block;
+      }
+      .calendar-cell-selected{
+        position: relative;
+        color: @white;
+        &::after{
+          position: absolute;
+          z-index: -1;
+          content: " ";
+          top: 0;
+          left: 50%;
+          width: 25px;
+          height: 25px;
+          margin: 0 -12.5px;
+          border-radius: 50%; 
+          background: @orange;
+        }
+      }
+      .calendar-cell-selecteds{
+        position: relative;
+        background: #fff4e6;
+        &:first-child::after{
+          position: absolute;
+          z-index: -2;
+          content: "";
+          top: 0;
+          left: -25px;
+          width: 25px;
+          height: 25px;
+          background: #fff4e6;
+        }
+        &:last-child::before{
+          position: absolute;
+          z-index: -2;
+          content: "";
+          top: 0;
+          right: -25px;
+          width: 25px;
+          height: 25px;
+          background: #fff4e6;
+        }        
+      }
+      .calendar-cell-tag{
+        color: @orange;
+        display: block;
+        margin-top: 8px;
+      }
+      .calendar-cell-disabled {
+        color: @gray-ccc;
+        .calendar-saturdaytomonday{
+          color: @gray-ccc;
+        }
+      }
+    }
+  }
+}
